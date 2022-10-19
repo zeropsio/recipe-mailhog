@@ -4,7 +4,7 @@ mailhog:
     prepare:
       - |
         pwd
-        go install github.com/mailhog/MailHog
+        go install github.com/mailhog/MailHog@latest
         cd ~/go/bin
         cp MailHog /build/source/MailHog
     build: []
