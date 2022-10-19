@@ -1,2 +1,3 @@
-# recipe-mailhog
+# Recipe MailHog
+
 Zerops MailHog implementation.
