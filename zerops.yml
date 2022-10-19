@@ -18,6 +18,6 @@ mailhog:
     init:
       - echo "The application runtime is being initialized ..."
       - |
-        sudo chown -R mailhog:mailhog /var/www/MailHog
-        sudo chmod -R 775 /var/www/MailHog
+        chown mailhog:mailhog /var/www/MailHog
+        chmod 775 /var/www/MailHog
     start: su mailhog -c ./MailHog
