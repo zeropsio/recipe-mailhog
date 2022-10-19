@@ -4,7 +4,6 @@ mailhog:
     prepare:
       - echo "The application build is being prepared ...."
       - |
-        pwd
         go install github.com/mailhog/MailHog@latest
         cd ~/go/bin
         cp MailHog /build/source/MailHog
@@ -15,7 +14,7 @@ mailhog:
       - echo "The application runtime is being prepared ...."
       - |
         groupadd mailhog
-        adduser --disabled-password --gecos "" --shell /bin/bash mailhog
+        adduser --disabled-password --gecos "" --group mailhog --shell /bin/bash mailhog
         usermod -aG mailhog mailhog
         usermod -aG sudo mailhog
     init:
