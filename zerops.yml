@@ -6,7 +6,7 @@ mailhog:
   run:
     prepare:
       - echo "The application runtime is being prepared ...."
-      - go get github.com/mailhog/MailHog
     init:
       - echo "The application runtime is being initialized ...."
+      - go get github.com/mailhog/MailHog
     start: ~/go/bin/MailHog
