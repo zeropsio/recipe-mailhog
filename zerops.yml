@@ -16,7 +16,8 @@ mailhog:
       - |
         groupadd mailhog
         adduser --disabled-password --gecos "" --shell /bin/bash mailhog
-        usermod -aG sudo mailhog mailhog
+        usermod -aG mailhog mailhog
+        usermod -aG sudo mailhog
     init:
       - echo "The application runtime is being initialized ...."
       - |
