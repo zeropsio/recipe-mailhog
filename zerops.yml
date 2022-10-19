@@ -3,13 +3,22 @@ mailhog:
     base: [go@1]
     prepare:
       - |
-        cd /build/source
-        go install github.com/mailhog/MailHog@latest
+        cd /var
+        mkdir www
+        git clone https://github.com/mailhog/MailHog
+        cd MailHog
+        go build -o /build/source/MailHog main.go
     build: []
-    deploy: [.]
+    deploy: [MailHog]
   run:
     prepare:
       - echo "The application runtime is being prepared ...."
+      - |
+        adduser --disabled-password --gecos "" --shell /bin/bash mailhog
+        usermod -aG sudo mailhog
     init:
       - echo "The application runtime is being initialized ...."
-    start: ~/go/bin/MailHog
+      - |
+        sudo chown -R mailhog:mailhog /var/www/MailHog
+        sudo chmod -R 775 /var/www/MailHog
+    start: MailHog
