@@ -2,7 +2,7 @@ mailhog:
   build:
     base: [go@1]
     prepare:
-      - echo "The application build is being prepared ...."
+      - echo "The application build is being prepared ..."
       - |
         go install github.com/mailhog/MailHog@latest
         cd ~/go/bin
@@ -11,12 +11,12 @@ mailhog:
     deploy: [MailHog]
   run:
     prepare:
-      - echo "The application runtime is being prepared ...."
+      - echo "The application runtime is being prepared ..."
       - |
         adduser --disabled-password --gecos "" --shell /bin/bash mailhog
         usermod -aG mailhog sudo mailhog
     init:
-      - echo "The application runtime is being initialized ...."
+      - echo "The application runtime is being initialized ..."
       - |
         sudo chown -R mailhog:mailhog /var/www/MailHog
         sudo chmod -R 775 /var/www/MailHog
