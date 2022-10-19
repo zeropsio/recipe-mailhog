@@ -14,8 +14,7 @@ mailhog:
       - echo "The application runtime is being prepared ...."
       - |
         adduser --disabled-password --gecos "" --shell /bin/bash mailhog
-        # usermod -aG mailhog mailhog
-        usermod -aG sudo mailhog
+        usermod -aG mailhog sudo mailhog
     init:
       - echo "The application runtime is being initialized ...."
       - |
