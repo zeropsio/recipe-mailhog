@@ -5,9 +5,10 @@ mailhog:
       - echo "The application build is being prepared ..."
       - |
         go install github.com/mailhog/MailHog@latest
+    build:
+      - |
         cd ~/go/bin
         cp MailHog /build/source/MailHog
-    build: []
     deploy: [MailHog]
   run:
     prepare:
