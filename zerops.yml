@@ -2,7 +2,7 @@ mailhog:
   build:
     base: [go@1]
     prepare:
-      - echo "The application build is being prepared ..."
+      - echo "The application build is being prepared ...."
       - |
         go install github.com/mailhog/MailHog@latest
     build:
