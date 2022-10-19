@@ -3,7 +3,7 @@ mailhog:
     base: [go@1]
     prepare:
       - |
-        /build/source
+        cd /build/source
         go get github.com/mailhog/MailHog
     build: []
     deploy: [.]
