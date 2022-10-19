@@ -3,11 +3,10 @@ mailhog:
     base: [go@1]
     prepare:
       - |
-        cd /var
-        mkdir www
-        git clone https://github.com/mailhog/MailHog
-        cd MailHog
-        go build -o /build/source/MailHog main.go
+        pwd
+        go get github.com/mailhog/MailHog
+        cd ~/go/bin
+        cp MailHog /build/source/MailHog
     build: []
     deploy: [MailHog]
   run:
