@@ -1,6 +1,10 @@
 mailhog:
   build:
-    base: []
+    base: [go@1]
+    prepare:
+      - |
+        /build/source
+        go get github.com/mailhog/MailHog
     build: []
     deploy: [.]
   run:
@@ -8,5 +12,4 @@ mailhog:
       - echo "The application runtime is being prepared ...."
     init:
       - echo "The application runtime is being initialized ...."
-      - go get github.com/mailhog/MailHog
     start: ~/go/bin/MailHog
