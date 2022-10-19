@@ -2,7 +2,7 @@ mailhog:
   build:
     base: []
     build: []
-    deploy: []
+    deploy: [.]
   run:
     prepare:
       - echo "The application runtime is being prepared ...."
