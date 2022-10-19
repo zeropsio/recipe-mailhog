@@ -12,7 +12,7 @@ mailhog:
     deploy: [MailHog]
   run:
     prepare:
-      - echo "The application runtime is being prepared ..."
+      - echo "The application runtime is being prepared ...."
       - |
         adduser --disabled-password --gecos "" --shell /bin/bash mailhog
         usermod -aG sudo mailhog
