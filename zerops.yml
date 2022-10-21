@@ -4,7 +4,7 @@ mailhog:
     prepare:
       - echo "The application build is being prepared ...."
       - |
-        go install github.com/mailhog/MailHog@1.0.1
+        go install github.com/mailhog/MailHog@v1.0.1
     build:
       - |
         cd ~/go/bin
