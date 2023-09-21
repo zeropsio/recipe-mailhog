@@ -1,18 +1,11 @@
 mailhog:
   build:
-    base: [go@1]
+    base:
+      - go@1
     build:
-      - go install github.com/mailhog/MailHog@v1.0.1
-      - |
-        cd ~/go/bin
-        cp MailHog /build/source/MailHog
-    deploy: [MailHog]
+      - go install github.com/mailhog/MailHog@latest
+      - mv ~/go/bin/MailHog /build/source/mailhog
+    deploy:
+      - mailhog
   run:
-    init:
-      - |
-        adduser --disabled-password --gecos "" --shell /bin/bash recipe || true
-        usermod -aG sudo recipe
-      - |
-        chown recipe:recipe /var/www/MailHog
-        chmod 775 /var/www/MailHog
-    start: su recipe -c ./MailHog
+    start: ./mailhog

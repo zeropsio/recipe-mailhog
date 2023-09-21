@@ -1,0 +1,21 @@
+project:
+  name: mailhog-example
+  tags:
+    - mailhog
+services:
+  - hostname: mailhog
+    type: go@1
+    envVariables:
+      # Please refer to https://github.com/mailhog/MailHog/blob/master/docs/CONFIG.md
+      # for more advanced configuration settings.
+      MH_CORS_ORIGIN: "*"
+      MH_HOSTNAME: mailhog.zerops
+    ports:
+      - port: 8025
+        httpSupport: true
+      - port: 1025
+        httpSupport: true
+    minContainers: 1
+    maxContainers: 1
+    buildFromGit: https://github.com/zeropsio/recipe-mailhog@v2
+    enableSubdomainAccess: true
