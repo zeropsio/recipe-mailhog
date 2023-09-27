@@ -6,11 +6,17 @@ services:
       # for more advanced configuration settings.
       MH_CORS_ORIGIN: "*"
       MH_HOSTNAME: mailhog.zerops
+      # Using maildir (filesystem) storage,
+      # so that service restarts don't purge the stored emails.
+      #
+      # You'll still lose your emails, if you delete or re-build the service.
+      # See "Known Issues" section.
+      MH_STORAGE: maildir
+      MH_MAILDIR_PATH: /var/www/maildir
     ports:
       - port: 8025
-        httpSupport: true
       - port: 1025
-        httpSupport: true
+        httpSupport: false
     minContainers: 1
     maxContainers: 1
     buildFromGit: https://github.com/zeropsio/recipe-mailhog@v2
